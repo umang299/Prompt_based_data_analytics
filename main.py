@@ -1,10 +1,18 @@
 import os
+import shutil
 import pandas as pd
 import pandasai as pdai
 from pandasai.llm import OpenAI
 
 import streamlit as st
+from streamlit.file_util import get_streamlit_file_path
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+credential_path = get_streamlit_file_path("credentials.toml")
+if not os.path.exists(credential_path):
+    os.makedirs(os.path.dirname(credential_path), exist_ok=True)
+    shutil.copyfile(os.path.join(PROJECT_ROOT, ".streamlit\\credentials.toml"), credential_path)
 
 def load_df(csv_path):
     df = pd.read_csv(csv_path)
