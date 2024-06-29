@@ -64,3 +64,8 @@ enableWebsocketCompression = false
 # directory.
 # Default: false
 enableStaticServing = false
+
+[general]
+nemail = "umang91999@gmail.com
+ngatherUsageStats = false
+ndisableWelcomeMessage = true
